@@ -3,7 +3,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProfileStore } from "@/store/profile";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Send, RotateCcw, Star } from "lucide-react";
+import { Send, RotateCcw, Star, Users } from "lucide-react";
+import FamilyPanel from "@/components/FamilyPanel";
 
 interface Message {
   role: "user" | "assistant";
@@ -65,6 +66,7 @@ export default function Oracle() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
+  const [familyOpen, setFamilyOpen] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -124,6 +126,14 @@ export default function Oracle() {
         assistantMsg += chunk;
         setMessages([...newMessages, { role: "assistant", content: assistantMsg }]);
       }
+      // Log to database (fire-and-forget)
+      if (assistantMsg) {
+        fetch("/api/logs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ profile_name: name, question: prompt, response: assistantMsg }),
+        }).catch(() => {});
+      }
     } catch (e) {
       console.error(e);
       setMessages([...newMessages, { role: "assistant", content: "The oracle is momentarily between realms. Please try again." }]);
@@ -174,6 +184,13 @@ export default function Oracle() {
           </div>
         </div>
         <div className="flex gap-4 items-center">
+          <button
+            onClick={() => setFamilyOpen(true)}
+            className="text-[var(--color-gold)]/50 hover:text-[var(--color-gold)] transition-colors"
+            title="Family Profiles"
+          >
+            <Users size={16} />
+          </button>
           <button
             onClick={() => setStage(3)}
             className="text-[10px] uppercase tracking-[0.15em] text-[var(--color-gold)]/50 hover:text-[var(--color-gold)] transition-colors hidden sm:block"
@@ -315,6 +332,9 @@ export default function Oracle() {
           </form>
         </div>
       </GlassCard>
+
+      {/* Family profiles panel */}
+      <FamilyPanel open={familyOpen} onClose={() => setFamilyOpen(false)} />
     </motion.div>
   );
 }
