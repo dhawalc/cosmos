@@ -144,7 +144,7 @@ export default function FamilyPanel({ open, onClose }: { open: boolean; onClose:
             className="fixed right-0 top-0 h-full w-full max-w-md bg-[var(--color-void)]/95 backdrop-blur-xl border-l border-[var(--color-gold)]/15 z-50 flex flex-col shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--color-gold)]/10">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 border-b border-[var(--color-gold)]/10">
               <div className="flex items-center gap-3">
                 <Users size={18} className="text-[var(--color-gold)] opacity-70" />
                 <h3 className="font-serif italic text-xl text-gold-gradient">Family & Profiles</h3>
@@ -155,7 +155,7 @@ export default function FamilyPanel({ open, onClose }: { open: boolean; onClose:
             </div>
 
             {/* Content */}
-            <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
+            <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 space-y-4">
               {loading && (
                 <div className="flex justify-center py-8">
                   <Loader2 size={24} className="animate-spin text-[var(--color-gold)]" />
@@ -241,7 +241,7 @@ export default function FamilyPanel({ open, onClose }: { open: boolean; onClose:
 
             {/* Footer — add button */}
             {editing === null && (
-              <div className="px-6 py-4 border-t border-[var(--color-gold)]/10">
+              <div className="px-3 sm:px-6 py-4 border-t border-[var(--color-gold)]/10">
                 <button
                   onClick={startNew}
                   className="w-full py-3 border border-dashed border-[var(--color-gold)]/30 rounded-xl text-[var(--color-gold)] text-sm tracking-wide hover:bg-[var(--color-gold)]/5 transition-colors flex items-center justify-center gap-2"
@@ -303,7 +303,7 @@ function ProfileForm({
           </option>
         ))}
       </select>
-      <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="date"
           value={form.dob}

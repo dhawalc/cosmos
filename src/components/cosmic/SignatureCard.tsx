@@ -53,7 +53,7 @@ export function SignatureCard({ title, value, subtitle, delay, index = 0 }: Prop
       </motion.svg>
 
       <div className="border-shimmer rounded-3xl h-full">
-        <div className="backdrop-blur-xl bg-white/[0.04] rounded-3xl p-6 h-full flex flex-col justify-center items-center text-center relative overflow-hidden cursor-pointer transition-all duration-500 hover:bg-white/[0.08]">
+        <div className="backdrop-blur-xl bg-white/[0.04] rounded-3xl p-3 sm:p-6 h-full flex flex-col justify-center items-center text-center relative overflow-hidden cursor-pointer transition-all duration-500 hover:bg-white/[0.08]">
           {/* Devanagari accent — top right corner */}
           <span
             className="absolute top-3 right-4 text-[var(--color-gold)]/20 text-lg font-devanagari select-none"
@@ -68,7 +68,7 @@ export function SignatureCard({ title, value, subtitle, delay, index = 0 }: Prop
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: delay + 0.5, duration: 0.6, ease: "backOut" }}
-              className="text-3xl mb-3 block"
+              className="text-xl sm:text-3xl mb-2 sm:mb-3 block"
               style={{
                 filter: "drop-shadow(0 0 12px rgba(212,168,75,0.5))",
                 color: "var(--gold-soft)",
@@ -79,7 +79,7 @@ export function SignatureCard({ title, value, subtitle, delay, index = 0 }: Prop
           )}
 
           {/* Title */}
-          <h3 className="text-[10px] opacity-50 uppercase tracking-[0.2em] mb-3 font-semibold text-[var(--color-ivory)]">
+          <h3 className="text-[9px] sm:text-[10px] opacity-50 uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-1.5 sm:mb-3 font-semibold text-[var(--color-ivory)]">
             {title}
           </h3>
 
@@ -88,7 +88,7 @@ export function SignatureCard({ title, value, subtitle, delay, index = 0 }: Prop
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: delay + 0.3, duration: 0.6 }}
-            className="text-3xl font-serif text-shimmer mb-2 transition-transform duration-300 group-hover:scale-110"
+            className="text-lg sm:text-3xl font-serif text-shimmer mb-1 sm:mb-2 transition-transform duration-300 group-hover:scale-110"
           >
             {value}
           </motion.p>

@@ -81,7 +81,7 @@ export default function BirthImprint() {
         जन्म छाप
       </motion.p>
 
-      <GlassCard shimmerBorder className="w-full max-w-md p-8 shadow-2xl">
+      <GlassCard shimmerBorder className="w-full max-w-md p-5 sm:p-8 shadow-2xl">
         <h2 className="text-3xl font-serif italic text-shimmer mb-2 text-center">
           Your Cosmic Imprint
         </h2>
@@ -122,7 +122,7 @@ export default function BirthImprint() {
           </div>
 
           {/* DOB + Time row */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1">
               <label className="block text-[11px] opacity-50 mb-2 tracking-widest uppercase">
                 Date of Birth

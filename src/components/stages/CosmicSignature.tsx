@@ -28,7 +28,7 @@ export default function CosmicSignature() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 0.97 }}
       transition={{ duration: 1 }}
-      className="flex flex-col items-center justify-center min-h-screen px-4 pb-20 pt-8 z-10 relative"
+      className="flex flex-col items-center justify-center min-h-screen px-3 sm:px-4 pb-20 pt-6 sm:pt-8 z-10 relative"
     >
       {/* Aurora */}
       <div className="aurora" />
@@ -49,7 +49,7 @@ export default function CosmicSignature() {
         initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="text-4xl md:text-5xl font-serif italic text-shimmer mb-3 text-center"
+        className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-shimmer mb-3 text-center"
       >
         Your Cosmic Signature
       </motion.h2>
@@ -73,7 +73,7 @@ export default function CosmicSignature() {
       />
 
       {/* Cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl w-full mb-16">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 max-w-4xl w-full mb-10 sm:mb-16">
         {cards.map((card, i) => (
           <SignatureCard
             key={i}

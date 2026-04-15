@@ -104,7 +104,7 @@ export default function Invocation() {
         </motion.p>
 
         {/* Main headline — word-by-word reveal with shimmer */}
-        <h1 className="font-serif italic text-5xl sm:text-6xl md:text-8xl tracking-[-0.02em] mb-4 leading-[1.1]">
+        <h1 className="font-serif italic text-3xl sm:text-5xl md:text-8xl tracking-[-0.02em] mb-4 leading-[1.1]">
           {["The", "stars", "know", "you,"].map((word, i) => (
             <motion.span
               key={i}
@@ -151,7 +151,7 @@ export default function Invocation() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 0.7 }}
           transition={{ delay: 2.2, duration: 1 }}
-          className="text-[var(--color-ivory)] mb-12 text-base sm:text-lg md:text-xl max-w-md mx-auto font-light leading-relaxed"
+          className="text-[var(--color-ivory)] mb-8 sm:mb-12 text-sm sm:text-lg md:text-xl max-w-md mx-auto font-light leading-relaxed px-2"
         >
           Your personal Jyotish + numerology oracle, crafted just for you.
         </motion.p>
@@ -167,7 +167,7 @@ export default function Invocation() {
           <button
             onClick={() => setStage(2)}
             className="
-              relative px-10 py-4
+              relative px-6 sm:px-10 py-3 sm:py-4
               bg-[var(--color-void)]/50 backdrop-blur-md
               border border-[var(--color-gold)]/40
               text-[var(--color-gold)] rounded-full

@@ -175,7 +175,7 @@ body {
     width: 80px;
   }
   100% {
-    transform: translateX(300px) translateY(300px) rotate(-45deg);
+    transform: translateX(min(300px, 80vw)) translateY(min(300px, 80vw)) rotate(-45deg);
     opacity: 0;
     width: 120px;
   }

@@ -63,7 +63,7 @@ function ShootingStar({ delay }: { delay: number }) {
   );
 }
 
-export function Starfield() {
+export function Starfield({ mobile = false }: { mobile?: boolean }) {
   const groupRef = useRef<THREE.Group>(null);
 
   useFrame((_, delta) => {
@@ -80,7 +80,7 @@ export function Starfield() {
         <Stars
           radius={100}
           depth={60}
-          count={6000}
+          count={mobile ? 2000 : 6000}
           factor={4}
           saturation={0}
           fade
@@ -88,7 +88,7 @@ export function Starfield() {
         />
         {/* Warm gold dust layer */}
         <Sparkles
-          count={400}
+          count={mobile ? 100 : 400}
           scale={40}
           size={5}
           speed={0.3}
@@ -96,14 +96,16 @@ export function Starfield() {
           color="#F3D998"
         />
         {/* Deeper cool sparkle layer */}
-        <Sparkles
-          count={150}
-          scale={50}
-          size={3}
-          speed={0.15}
-          opacity={0.2}
-          color="#8B7FD4"
-        />
+        {!mobile && (
+          <Sparkles
+            count={150}
+            scale={50}
+            size={3}
+            speed={0.15}
+            opacity={0.2}
+            color="#8B7FD4"
+          />
+        )}
       </group>
 
       {/* Shooting stars — independent of rotation */}

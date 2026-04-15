@@ -12,12 +12,10 @@ export function Mandala() {
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
       {/* Outermost ring — slow clockwise */}
       <motion.svg
-        width="900"
-        height="900"
+        className="absolute w-[280px] h-[280px] sm:w-[600px] sm:h-[600px] md:w-[900px] md:h-[900px]"
         viewBox="0 0 200 200"
         animate={{ rotate: 360 }}
         transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
-        className="absolute"
         style={{ filter: "drop-shadow(0 0 20px rgba(212,168,75,0.15))" }}
       >
         <defs>
@@ -47,15 +45,13 @@ export function Mandala() {
 
       {/* Middle ring — counter-clockwise, faster */}
       <motion.svg
-        width="650"
-        height="650"
+        className="absolute w-[200px] h-[200px] sm:w-[420px] sm:h-[420px] md:w-[650px] md:h-[650px]"
         viewBox="0 0 200 200"
         animate={{ rotate: -360, opacity: [0.12, 0.22, 0.12] }}
         transition={{
           rotate: { duration: 120, repeat: Infinity, ease: "linear" },
           opacity: { duration: 8, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute"
         style={{ filter: "drop-shadow(0 0 15px rgba(212,168,75,0.2))" }}
       >
         {/* Sri Yantra triangles — upward */}
@@ -83,8 +79,7 @@ export function Mandala() {
 
       {/* Innermost ring — slow clockwise, breathing glow */}
       <motion.svg
-        width="350"
-        height="350"
+        className="absolute w-[120px] h-[120px] sm:w-[230px] sm:h-[230px] md:w-[350px] md:h-[350px]"
         viewBox="0 0 200 200"
         animate={{
           rotate: 360,
@@ -96,7 +91,6 @@ export function Mandala() {
           opacity: { duration: 5, repeat: Infinity, ease: "easeInOut" },
           scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
         }}
-        className="absolute"
         style={{ filter: "drop-shadow(0 0 30px rgba(243,217,152,0.3))" }}
       >
         {/* Central bindu circle */}

@@ -161,14 +161,14 @@ export default function Oracle() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col h-screen w-full max-w-3xl mx-auto px-4 py-4 md:py-6 z-10 relative"
+      className="flex flex-col h-[100dvh] w-full max-w-3xl mx-auto px-2 sm:px-4 py-3 sm:py-6 z-10 relative"
     >
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex justify-between items-center mb-4 bg-[var(--color-void)]/80 backdrop-blur-xl px-5 py-3.5 rounded-2xl border border-[var(--color-gold)]/15 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+        className="flex justify-between items-center mb-2 sm:mb-4 bg-[var(--color-void)]/80 backdrop-blur-xl px-3 sm:px-5 py-3 rounded-2xl border border-[var(--color-gold)]/15 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
       >
         <div className="flex items-center gap-3">
           <motion.span
@@ -210,7 +210,7 @@ export default function Oracle() {
       {/* Chat area — static GlassCard (no bobbing!) */}
       <GlassCard isStatic className="flex-1 flex flex-col overflow-hidden shadow-2xl">
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto space-y-5 p-4 md:p-6">
+        <div className="flex-1 overflow-y-auto space-y-4 p-3 sm:p-4 md:p-6">
           {messages.length === 0 && (
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -234,7 +234,7 @@ export default function Oracle() {
               </p>
 
               {/* Suggested prompts — now with planet glyphs */}
-              <div className="flex flex-wrap justify-center gap-2 max-w-lg">
+              <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-lg px-2">
                 {SUGGESTED_PROMPTS.map((p) => (
                   <motion.button
                     key={p.label}
@@ -242,9 +242,9 @@ export default function Oracle() {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleSend(p.label)}
                     className="
-                      px-4 py-2.5
+                      px-3 sm:px-4 py-2 sm:py-2.5
                       border border-[var(--color-gold)]/20 rounded-full
-                      text-xs tracking-wide
+                      text-[11px] sm:text-xs tracking-wide
                       transition-all duration-300
                       hover:bg-[var(--color-gold)]/10 hover:border-[var(--color-gold)]/40
                       flex items-center gap-2
@@ -306,7 +306,7 @@ export default function Oracle() {
                 flex-1 bg-[var(--color-void)]/80 text-[var(--color-ivory)]
                 placeholder:text-white/20
                 border border-[var(--color-gold)]/20 rounded-full
-                px-6 py-3.5 text-sm outline-none
+                px-4 sm:px-6 py-3 text-sm outline-none
                 transition-all duration-300
                 focus:border-[var(--color-gold)]/50
                 disabled:opacity-40
