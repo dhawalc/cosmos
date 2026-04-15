@@ -8,11 +8,11 @@ import { Loader2, Sparkles } from "lucide-react";
 const SANSKRIT_GLYPHS = ["ॐ", "श्री", "꩜", "✦", "⟡", "◈", "☉", "☽"];
 
 export default function BirthImprint() {
-  const [name, setName] = useState("");
-  const [dob, setDob] = useState("");
+  const [name, setName] = useState("Himani Dilip Thakkar");
+  const [dob, setDob] = useState("1984-08-24");
   const [time, setTime] = useState("");
-  const [place, setPlace] = useState("");
-  const [unknownTime, setUnknownTime] = useState(false);
+  const [place, setPlace] = useState("Surat, India");
+  const [unknownTime, setUnknownTime] = useState(true);
   const [loading, setLoading] = useState(false);
   const [glyphIndex, setGlyphIndex] = useState(0);
 

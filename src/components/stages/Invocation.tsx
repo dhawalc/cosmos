@@ -100,12 +100,12 @@ export default function Invocation() {
           className="text-sm tracking-[0.3em] uppercase mb-8 text-[var(--color-gold)]"
           style={{ fontFamily: "var(--font-devanagari), serif" }}
         >
-          ज्योतिष · अंक विद्या
+          हिमानी · ज्योतिष · अंक विद्या
         </motion.p>
 
         {/* Main headline — word-by-word reveal with shimmer */}
         <h1 className="font-serif italic text-5xl sm:text-6xl md:text-8xl tracking-[-0.02em] mb-4 leading-[1.1]">
-          {["The", "stars", "remember", "you."].map((word, i) => (
+          {["The", "stars", "know", "you,"].map((word, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -121,7 +121,7 @@ export default function Invocation() {
             </motion.span>
           ))}
           <br />
-          {["Let", "them", "speak."].map((word, i) => (
+          {["Himani."].map((word, i) => (
             <motion.span
               key={`l2-${i}`}
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -153,7 +153,7 @@ export default function Invocation() {
           transition={{ delay: 2.2, duration: 1 }}
           className="text-[var(--color-ivory)] mb-12 text-base sm:text-lg md:text-xl max-w-md mx-auto font-light leading-relaxed"
         >
-          Ancient Jyotish + numerology, distilled into a conversation.
+          Your personal Jyotish + numerology oracle, crafted just for you.
         </motion.p>
 
         {/* CTA button — gold border with glow on hover */}

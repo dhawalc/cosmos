@@ -11,14 +11,14 @@ interface Message {
 }
 
 const SUGGESTED_PROMPTS = [
-  { label: "Career & dharma", icon: "☉" },
-  { label: "Relationship outlook", icon: "♀" },
-  { label: "Wealth & abundance", icon: "♃" },
-  { label: "Family harmony", icon: "☽" },
-  { label: "Travel abroad", icon: "☊" },
-  { label: "Health & vitality", icon: "♂" },
-  { label: "US immigration timing", icon: "♄" },
-  { label: "Spiritual practice", icon: "ॐ" },
+  { label: "Career growth at Fragomen", icon: "☉" },
+  { label: "Green card timing outlook", icon: "♄" },
+  { label: "Malkesh & me this year", icon: "♀" },
+  { label: "Naksh's path & potential", icon: "☽" },
+  { label: "Wealth & financial growth", icon: "♃" },
+  { label: "Health & peace of mind", icon: "♂" },
+  { label: "What should I focus on now?", icon: "☊" },
+  { label: "Spiritual practice for me", icon: "ॐ" },
 ];
 
 function ShimmerDots() {
