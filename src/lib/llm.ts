@@ -71,12 +71,20 @@ export async function streamWithClaude(ctx: LLMContext): Promise<ReadableStream<
 
 export async function streamWithGemini(ctx: LLMContext): Promise<ReadableStream<Uint8Array>> {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
-  const systemPrompt = buildSystemPrompt(ctx);
+  const model = genAI.getGenerativeModel({
+    model: 'gemini-2.5-flash',
+    systemInstruction: buildSystemPrompt(ctx),
+  });
 
-  const result = await model.generateContentStream(
-    `${systemPrompt}\n\nUser question: ${ctx.message}`
-  );
+  const trimmedHistory = ctx.history.slice(-6);
+  const chat = model.startChat({
+    history: trimmedHistory.map(m => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }],
+    })),
+  });
+
+  const result = await chat.sendMessageStream(ctx.message);
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream<Uint8Array>({
