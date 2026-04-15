@@ -9,13 +9,17 @@ export default function CosmicSignature() {
 
   if (!signature) return null;
 
+  const antardashaLabel = signature.antardasha
+    ? `${signature.mahadasha.lord}–${signature.antardasha.lord}`
+    : signature.mahadasha.lord;
+
   const cards = [
-    { title: "Ascendant (Lagna)", value: signature.lagna.sign, subtitle: `Ruled by ${signature.lagna.lord}` },
-    { title: "Moon Sign (Rashi)", value: signature.moon.sign, subtitle: "Emotional Nature" },
-    { title: "Sun (Surya)", value: signature.sun.sign, subtitle: "Soul Essence" },
-    { title: "Nakshatra", value: signature.nakshatra.name, subtitle: `Deity: ${signature.nakshatra.deity}` },
+    { title: signature.birthTimeKnown === false ? "Chandra Lagna" : "Ascendant (Lagna)", value: signature.lagna.sign, subtitle: `Ruled by ${signature.lagna.lord}` },
+    { title: "Moon Sign (Rashi)", value: signature.moon.sign, subtitle: `${signature.moon.degree}° · Pada ${signature.moon.pada}` },
+    { title: "Sun (Surya)", value: signature.sun.sign, subtitle: `${signature.sun.degree}° sidereal` },
+    { title: "Nakshatra", value: signature.nakshatra.name, subtitle: `${signature.nakshatra.deity} · ${signature.nakshatra.symbol}` },
     { title: "Life Path", value: lifePath?.toString() || "", subtitle: "Core Destiny Number" },
-    { title: "Current Season", value: signature.mahadasha.lord, subtitle: "Mahadasha Lord" },
+    { title: "Dasha Period", value: antardashaLabel, subtitle: `until ${signature.mahadasha.endsOn}` },
   ];
 
   return (

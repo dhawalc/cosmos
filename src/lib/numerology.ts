@@ -13,12 +13,22 @@ function reduceNumber(num: number, keepMaster: boolean = true): number {
 }
 
 /**
- * Calculates Life Path Number from Date of Birth
- * Format of dob: "YYYY-MM-DD" or similar containing digits
+ * Calculates Life Path Number from Date of Birth.
+ * Proper Pythagorean method: reduce month, day, year SEPARATELY first,
+ * then sum and reduce — this preserves intermediate master numbers.
+ * Format of dob: "YYYY-MM-DD"
  */
 export function getLifePathNumber(dob: string): number {
-  const digits = dob.replace(/\D/g, '').split('').map(d => parseInt(d, 10));
-  const sum = digits.reduce((a, b) => a + b, 0);
+  const parts = dob.split('-');
+  const year  = parseInt(parts[0], 10) || 0;
+  const month = parseInt(parts[1], 10) || 0;
+  const day   = parseInt(parts[2], 10) || 0;
+
+  const reduceDigits = (n: number) => reduceNumber(
+    n.toString().split('').reduce((a, d) => a + parseInt(d, 10), 0), true
+  );
+
+  const sum = reduceDigits(year) + reduceDigits(month) + reduceDigits(day);
   return reduceNumber(sum, true);
 }
 
